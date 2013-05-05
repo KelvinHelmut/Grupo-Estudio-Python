@@ -1,6 +1,6 @@
 Ejercicios Propuestos
 ========================
-**Ejercicio 1**
+**Desafio 2**
 
 >Realizar una agenda de contactos; 
 >cuando inicie el programa que te pregunte si quieres agregar contacto; 
@@ -56,4 +56,4 @@ Ejercicios Propuestos
 	--------------------------------------------------------
 	--------------------------------------------------------
 	
-**Solución Propuesta:** *Contactos.py*
+**Solución Propuesta:** *Sem3Des2+TuNombre.py*
