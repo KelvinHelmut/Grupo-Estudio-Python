@@ -3,8 +3,8 @@ Ejercicios Propuestos
 **Ejercicio 1**
 
 >Realizar una agenda de contactos; 
->que incie el programa y que te pregunte si quieres agregar contacto; 
->si se va a agregar un contacto que te pida nombre, telefono y e-mail; 
+>cuando incie el programa que te pregunte si quieres agregar contacto; 
+>si se va a agregar un contacto, que pida nombre, telefono y e-mail; 
 >cuando termines te vuelve a preguntar si quieres agregar contacto; 
 >si respondes no, muestra la lista de contactos y termina.
 
