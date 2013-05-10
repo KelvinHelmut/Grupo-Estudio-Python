@@ -2,7 +2,7 @@ Desafios
 ========================
 
 Desafio 1
-========================
+------------------
 
 >Un número primo es un entero positivo mayor que 1 que no tiene divisores positivos distintos al 1 y a sí mismo.
 >En otras palabras, si deseas saber si un número en una variable x es primo, entonces ningún otro número debería poder dividir x con residuo cero aparte del 1 y de x.
@@ -20,7 +20,7 @@ Desafio 1
 
 
 Desafio 2
-========================
+-----------------
 
 >Realizar una agenda de contactos.
 
@@ -83,3 +83,17 @@ Desafio 2
 	--------------------------------------------------------
 	
 **Solución Propuesta:** *Sem3Des2+TuNombre.py*
+
+
+Semana 3 - Desafío 3﻿
+----------------------
+
+>reto: escribir un algoritmo que me organize una lista de letras en todas sus combinaciones posibles:
+
+>a = ['a', 'b', 'c', 'd']
+
+>hay 12 combinaciones la salida seria:
+
+>('a', 'b'), ('a', 'c'), ('a', 'd'), ('b', 'a'), ('b', 'c'), ('b', 'd'), ('c', 'a'), ('c', 'b'), ('c', 'd'), ('d', 'a'), ('d', 'b'), ('d', 'c')
+
+**Solución Propuesta:** *Sem3Des3+TuNombre.py*
