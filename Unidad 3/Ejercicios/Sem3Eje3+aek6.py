@@ -10,3 +10,8 @@ def sumarDigitos( numero ):
 
 numero = input( 'Dame un numero:' )
 print( sumarDigitos( numero ) )
+
+'''con esto vasta:
+
+sum(range(numero))
+'''
