@@ -82,5 +82,5 @@ def quitarv2( numero, lNumeros, i ):
 
 #Descomentar la funcion a la que se quiere llamar
 #numerosPrimos()
-#numerosPrimosMenoresA()
+numerosPrimosMenoresA()
 #verificarPrimo()
