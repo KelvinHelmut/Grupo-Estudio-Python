@@ -115,7 +115,6 @@ def obtenerDatos( nuevo ):
 def nuevoId( datos ):
     '''generar nuevo id para el nuevo registro'''
     data = list(datos)
-    print(data)
     if len(data) > 0:
         return (1 + int(data[len(data)-1][0]))
     return 1
