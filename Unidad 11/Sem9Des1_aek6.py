@@ -9,7 +9,7 @@ def main():
     archivo = 'agenda.csv'
     while True:
         print('AGENDA DE CONTACTOS')
-        opcion = input('[N]Nuevo\n[E]Editar\n[R]Remover\n[L]Listar\n[B]Buscar\n[S]Salir\n\nIngrese una opcion: ')
+        opcion = input('[N]Nuevo\n[E]Editar\n[R]Remover\n[L]Listar\n[A]Listar Orden Nombre\n[B]Buscar\n[S]Salir\n\nIngrese una opcion: ')
         if opcion.lower() == 'n':
             nuevo( archivo )
         elif opcion.lower() == 'e':
@@ -21,11 +21,13 @@ def main():
             remover( archivo, ID )
         elif opcion.lower() == 'l':
             listar(archivo)
+        elif opcion.lower() == 'a':
+            listar_orden(archivo)
         elif opcion.lower() == 'b':
             print('Buscar Por:')
             op = input('[1]' + campos[1] + '  [2]' + campos[2] + '  [3]' + campos[3] + ": ")
             if op == '1' or op == '2' or op == '3':
-                ocurrencia = input('Buscar: ')
+                ocurrencia = input('Buscar(caracteres contenidos en ' + campos[int(op)] + '): ')
                 buscar(ocurrencia, int(op), archivo)
         elif opcion.lower() == 's':
             break
@@ -45,7 +47,7 @@ def remover( nombreArchivo, codigo ):
     for linea in lector:
         if linea[0] == codigo:
             print('El registro:')
-            imprimir( [linea] )
+            imprimir( [linea], campos )
             print('Fue removido.')
             input('Continuar.')
         else:
@@ -63,9 +65,9 @@ def editar( nombreArchivo, fila ):
         if linea[0] == fila[0]:
             escribir(escritor, fila)
             print('El registro:')
-            imprimir([linea])
+            imprimir([linea], campos)
             print('Fue cambiado por:')
-            imprimir([fila])
+            imprimir([fila], campos)
             input('Continuar.')
         else:
             escribir( escritor, linea )
@@ -75,7 +77,7 @@ def listar( nombreArchivo ):
     '''lista los datos del archivo'''
     archivo = abrirArchivo( nombreArchivo, False )
     lector = csv.reader(archivo)
-    imprimir(list(lector))
+    imprimir(list(lector), campos)
     archivo.close()
     input('Continuar.')
     
@@ -88,7 +90,7 @@ def buscar( texto, i, nombreArchivo ):
         if texto.lower() in linea[i].lower():
             encontrados.append(linea)
     if len(encontrados) > 0:
-        imprimir(encontrados)
+        imprimir(encontrados, campos)
     else:
         print('No hay coincidencias con el valor buscado.')
     archivo.close()
@@ -140,7 +142,7 @@ def limpiar():
     else:
         print("<-No se pudo borrar la pantalla->")
         
-def imprimir( filas ):
+def imprimir( filas, campos ):
     '''imprime tabla de datos'''
     filas.insert(0,campos)
     longis = preparaTabla(filas)
@@ -168,6 +170,35 @@ def preparaTabla( filas ):
             if longis[i] < len(fila[i]):
                 longis[i] = len(fila[i])
     return longis
+    
+def listar_orden( nombreArchivo ):
+    '''lista los datos del archivo en orden alfabetico'''
+    archivo = abrirArchivo( nombreArchivo, False )
+    lector = csv.reader(archivo)
+    lista = list(lector)
+    listaOrdenada = []
+    for e in lista:
+        listaOrdenada.append( [e[1],e[2],e[3],e[0]] )
+    listaOrdenada.sort()
+    listaLetra = []
+    if len(listaOrdenada)>0:
+        if len(listaOrdenada[0][0]) > 0:
+            letra = listaOrdenada[0][0]
+        else:
+            letra = ' '
+    for e in (listaOrdenada + [['']]):
+        if not len(e[0])>0:
+            e[0] = ' '
+        if letra == e[0][0]:
+            listaLetra.append(e)
+        else:
+            imprimir(listaLetra, ('"' + letra.upper() + '"','','',''))
+            listaLetra.clear()
+            letra = e[0][0]
+            listaLetra.append(e)
+#    imprimir(listaOrdenada, ('Nombre','Teléfono','E-mail', 'ID'))
+    archivo.close()
+    input('Continuar.')
 
     
 main()
